@@ -4,29 +4,29 @@ RSpec.describe BowlingScore do
   let(:game) { BowlingScore.new }
 
   it 'scores a gutter score as 0' do
-		20.times { game.roll(0) }
-		expect(game.score).to eq(0)
+    20.times { game.roll(0) }
+    expect(game.score).to eq(0)
   end
 
   it 'scores a score of all ones as 20' do
-		20.times { game.roll(1) }
-		expect(game.score).to eq(20)
+    20.times { game.roll(1) }
+    expect(game.score).to eq(20)
   end
 
   it 'scores a spare followed by three pins as 16' do
-		game.roll(5)
-		game.roll(5)  # Spare
-		game.roll(3)
-		17.times { game.roll(0) }
-		expect(game.score).to eq(16)
+    game.roll(5)
+    game.roll(5)  # Spare
+    game.roll(3)
+    17.times { game.roll(0) }
+    expect(game.score).to eq(16)
   end
 
   it 'scores a strike followed by three and four pins as 24' do
-		game.roll(10)  # Strike
-		game.roll(3)
-		game.roll(4)
-		16.times { game.roll(0) }
-		expect(game.score).to eq(24)
+    game.roll(10)  # Strike
+    game.roll(3)
+    game.roll(4)
+    16.times { game.roll(0) }
+    expect(game.score).to eq(24)
   end
 
   it 'scores a perfect score as 300' do
